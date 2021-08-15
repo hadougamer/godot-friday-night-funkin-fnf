@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/ArrowLeft.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ArrowBottom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ArrowTop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ArrowRight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/BoyFriend.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/LifeBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/lb_dad.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/lb_boy.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Girlfriend.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Dad.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/background.jpg" type="Texture" id=14]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 191.222, 266.503 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 14 )
+
+[node name="Dad" parent="." instance=ExtResource( 12 )]
+position = Vector2( -2, 222 )
+
+[node name="Girlfriend" parent="." instance=ExtResource( 11 )]
+position = Vector2( 406, 230 )
+
+[node name="BoyFriend" parent="." instance=ExtResource( 7 )]
+position = Vector2( 654.072, 365.746 )
+frame = 1
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="ArrowLeft" parent="Canvas" instance=ExtResource( 2 )]
+position = Vector2( 639, 70 )
+playing = true
+
+[node name="ArrowBottom" parent="Canvas" instance=ExtResource( 3 )]
+position = Vector2( 745.851, 81.4343 )
+
+[node name="ArrowTop" parent="Canvas" instance=ExtResource( 4 )]
+position = Vector2( 850.281, 74.082 )
+
+[node name="ArrowRight" parent="Canvas" instance=ExtResource( 5 )]
+position = Vector2( 956.307, 70.5184 )
+
+[node name="LifeBar" parent="Canvas" instance=ExtResource( 8 )]
+margin_left = 282.496
+margin_top = 565.628
+margin_right = 821.496
+margin_bottom = 582.628
+value = 50.0
+
+[node name="lbRivals" type="Node2D" parent="Canvas"]
+position = Vector2( 531.942, 570.07 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="dad" type="Sprite" parent="Canvas/lbRivals"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 9 )
+
+[node name="boy" type="Sprite" parent="Canvas/lbRivals"]
+position = Vector2( 40.9698, 3.92865 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="ActionArrowsPositions" type="Node" parent="Canvas"]
+
+[node name="ArrowPosLeft" type="Position2D" parent="Canvas/ActionArrowsPositions"]
+position = Vector2( 639, 700 )
+
+[node name="ArrowPosBotom" type="Position2D" parent="Canvas/ActionArrowsPositions"]
+position = Vector2( 745.851, 700 )
+
+[node name="ArrowPosTop" type="Position2D" parent="Canvas/ActionArrowsPositions"]
+position = Vector2( 850.281, 700 )
+
+[node name="ArrowPosRight" type="Position2D" parent="Canvas/ActionArrowsPositions"]
+position = Vector2( 956.307, 700 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

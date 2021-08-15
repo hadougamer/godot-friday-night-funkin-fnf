@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Arrows.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ActionArrow.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50.6109, 39.134 )
+
+[node name="ActionArrow" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.666667 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 55, 55, 55 )
+
+[node name="Notifier" type="VisibilityNotifier2D" parent="."]
+
+[node name="Area" type="Area2D" parent="." groups=[
+"ArrowAction",
+]]
+
+[node name="Collider" type="CollisionShape2D" parent="Area"]
+position = Vector2( 0.794601, 7.94597 )
+shape = SubResource( 1 )
+[connection signal="screen_exited" from="Notifier" to="." method="_on_Notifier_screen_exited"]
+[connection signal="area_entered" from="Area" to="." method="_on_action_button_entered"]
+[connection signal="area_exited" from="Area" to="." method="_on_action_button_exited"]
