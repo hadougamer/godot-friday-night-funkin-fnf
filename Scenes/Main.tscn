@@ -29,7 +29,7 @@ position = Vector2( 406, 230 )
 
 [node name="BoyFriend" parent="." instance=ExtResource( 7 )]
 position = Vector2( 654.072, 365.746 )
-frame = 1
+frame = 5
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
