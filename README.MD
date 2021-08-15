@@ -31,7 +31,7 @@ https://www.youtube.com/watch?v=3FqdFDy7xe0
 
 ## Mais sobre Hadou TV
 https://www.youtube.com/hadoutv
-![Street Fighter 2](https://raw.githubusercontent.com/hadougamer/aula-streetfighter2/master/samples/hadoutv-screen.png)
+![Street Fighter 2](https://raw.githubusercontent.com/hadougamer/godot-friday-night-funkin-fnf/master/Samples/screen-sample.png)
 
 HADOUTV é um canal no youtube voltado para a difusão de conhecimento acerca do desenvolvimento de jogos. Neste espaço oferecemos semanalmente TREINAMENTO TOTALMENTE GRATUITO para quem tiver interesse em se aprofundar sobre DESENVOLVIMENTO DE JOGOS de videogame. Atualmente estamos com um curso de GODOT GAME ENGINE que visa instrumentalizar interessados no usa deste poderoso framework GRATUITO, OPEN SOURCE.
 
